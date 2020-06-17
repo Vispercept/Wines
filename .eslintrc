@@ -1,0 +1,7 @@
+{
+  "extends": "eslint",
+  "rules": {
+    "quotes": [2, "single", "avoid-escape"],
+    "indent": ["error", 2]
+  }
+}

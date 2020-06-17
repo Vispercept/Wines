@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  wines-service:
+    image: wines-service:dev
+    container_name: wines-service-dev
+    build:
+      context: .
+      target: dev
+    volumes:
+      # do not mount node_modules
+      - /usr/src/app/node_modules
+      - .:/usr/src/app
+    ports:
+      - 3000:8080
+    command: npm run dev

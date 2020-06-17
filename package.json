@@ -1,0 +1,33 @@
+{
+  "name": "wines-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server",
+    "lint": "eslint .",
+    "start": "node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vispercept/Wines.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vispercept/Wines/issues"
+  },
+  "homepage": "https://github.com/Vispercept/Wines#readme",
+  "dependencies": {
+    "fastify": "^2.14.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-eslint": "^6.0.0",
+    "eslint-plugin-jsdoc": "^27.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.4"
+  }
+}
