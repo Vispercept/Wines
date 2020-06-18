@@ -1,6 +1,5 @@
-const mongoose = require('mongoose');
-
-const isValidObjectId = mongoose.Types.ObjectId.isValid;
+const { validateId } = require('../../utils');
+const Wine = require('../../../db/models/Wine');
 
 const schema = {
   tags: ['Wine-Api'],
@@ -21,12 +20,10 @@ const schema = {
 };
 
 module.exports = async function getAll(fastify) {
-  const validateId = (id) => { if (!isValidObjectId(id)) throw fastify.httpErrors.notAcceptable(`${id} is not a valid id!`); };
-
   fastify.delete('/:wineId', { schema }, async ({ params: { wineId } }) => {
-    validateId(wineId);
+    validateId(fastify, wineId);
 
-    const { deletedCount } = await mongoose.model('Wine').deleteOne({ _id: wineId });
+    const { deletedCount } = await Wine.deleteOne({ _id: wineId });
     return deletedCount ? null : fastify.httpErrors.notFound(`No wine in stock with id ${wineId}`);
   });
 };

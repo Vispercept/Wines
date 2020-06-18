@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
 const wineSchema = require('../../../db/models/Wine/json-schema.json');
-
-const isValidObjectId = mongoose.Types.ObjectId.isValid;
+const Wine = require('../../../db/models/Wine');
+const { validateId } = require('../../utils');
 
 const schema = {
   tags: ['Wine-Api'],
@@ -27,12 +26,10 @@ const schema = {
 };
 
 module.exports = async function getAll(fastify) {
-  const validateId = (id) => { if (!isValidObjectId(id)) throw fastify.httpErrors.notAcceptable(`${id} is not a valid id!`); };
-
   fastify.patch('/:wineId', { schema }, async ({ params: { wineId }, body }) => {
-    validateId(wineId);
+    validateId(fastify, wineId);
 
-    await mongoose.model('Wine').updateOne({ _id: wineId }, body);
-    return await mongoose.model('Wine').findOne({ _id: wineId }, { __v: 0 }) || fastify.httpErrors.notFound(`No wine in stock with id ${wineId}`);
+    await Wine.updateOne({ _id: wineId }, body);
+    return await Wine.findOne({ _id: wineId }, { __v: 0 }) || fastify.httpErrors.notFound(`No wine in stock with id ${wineId}`);
   });
 };

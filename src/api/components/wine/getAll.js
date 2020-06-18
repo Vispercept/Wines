@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const wineSchema = require('../../../db/models/Wine/json-schema.json');
+const Wine = require('../../../db/models/Wine');
 
 const schema = {
   schema: {
@@ -12,5 +12,5 @@ const schema = {
 };
 
 module.exports = async function getAll(fastify) {
-  fastify.get('/', schema, async () => mongoose.model('Wine').find(undefined, { __v: 0 }));
+  fastify.get('/', schema, async () => Wine.find(undefined, { __v: 0 }));
 };

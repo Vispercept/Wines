@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const wineSchema = require('../../../db/models/Wine/json-schema.json');
+const Wine = require('../../../db/models/Wine');
 
 const schema = {
   tags: ['Wine-Api'],
@@ -12,5 +12,5 @@ const schema = {
 };
 
 module.exports = async function getAll(fastify) {
-  fastify.post('/', { schema }, ({ body }) => new mongoose.model('Wine')(body).save());
+  fastify.post('/', { schema }, ({ body }) => new Wine(body).save());
 };
