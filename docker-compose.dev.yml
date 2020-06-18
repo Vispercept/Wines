@@ -12,4 +12,6 @@ services:
       - /usr/src/app/node_modules
       - .:/usr/src/app
     command: npm run dev
+    environment:
+      - collection=test
 

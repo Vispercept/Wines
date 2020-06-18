@@ -12,9 +12,10 @@ services:
     ports:
       - 8080:8080
   mongodb:
+    container_name: wines-mongo
     image: mongo:4.2.8
     ports:
-      - "27017:27017"
+      - 27017:27017
     volumes:
       - mongodb-data:/data
 volumes:

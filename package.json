@@ -8,14 +8,16 @@
   },
   "scripts": {
     "dc_build": "docker-compose up --build",
-    "dc_start": "docker-compose up --build -d",
+    "dc_build_dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build",
+    "dc_start": "docker-compose up -d",
     "dc_dev": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build -d",
-    "dc_tdd": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml -f docker-compose.tdd.yml up --build -d",
+    "dc_test": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml run wines-service npm run test",
+    "dc_tdd": "docker-compose -f docker-compose.yml -f docker-compose.dev.yml run wines-service npm run tdd",
     "dc_logs": "docker logs wines-service-dev -f",
     "dev": "nodemon src",
     "lint": "eslint .",
     "start": "node src",
-    "test": "node_modules/.bin/mocha './!(node_modules)/**/*.spec.js' --exit",
+    "test": "mocha './!(node_modules)/**/*.spec.js' --exit",
     "tdd": "npm run test -- --watch"
   },
   "repository": {

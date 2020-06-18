@@ -11,9 +11,6 @@ RUN npm install
 
 EXPOSE 8080
 
-CMD [ "npm", "run", "dev" ]
-
-
 # production stage
 FROM node:12-alpine as production
 
@@ -23,7 +20,6 @@ ENV NODE_ENV=production
 COPY --from=dev /usr/src/app/ ./
 COPY . .
 RUN npm run lint
-RUN npm run test
 RUN npm prune --production
 # RUN npm audit --production
 

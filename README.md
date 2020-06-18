@@ -1,20 +1,19 @@
 # Wines
 
 ## Development
-
 ### DevServer
-
 Run `npm run dc_dev`. Visit the api under [http://localhost:3000/](http://localhost:3000/).
 
 ### Testdriven development
-Run `npm run dc_tdd`. Visit logs by running `npm run dc_logs`
+Run `npm run dc_tdd` and watch mocha doeing the work
+
+### Tests
+Run `npm run dc_test`.
 
 ### Logs
-
 Logs can be found by running `npm run dc_logs`
 
 ### Changes in package*.json
-
 File changes are recognized by nodemon/mocha. Filechanges in package*.json excluded. To make changes in package*.json file active run `npm run dc_dev` again.
 
 
