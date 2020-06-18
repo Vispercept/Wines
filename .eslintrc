@@ -6,6 +6,7 @@
   "rules": {
     "quotes": [2, "single", "avoid-escape"],
     "indent": ["error", 2],
+    "no-underscore-dangle": 0,
     "node/no-unpublished-require": 0
   },
   "env": {
