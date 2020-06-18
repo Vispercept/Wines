@@ -15,8 +15,12 @@ const schema = {
       },
     },
   },
+  body: {
+    ...wineSchema,
+    required: [],
+  },
   response: {
-    200: { description: 'wine found', ...wineSchema },
+    200: { description: 'wine updted', ...wineSchema },
     404: { description: 'wine not found error object', type: 'object' },
     406: { description: 'invalid id error object', type: 'object' },
   },
@@ -25,9 +29,10 @@ const schema = {
 module.exports = async function getAll(fastify) {
   const validateId = (id) => { if (!isValidObjectId(id)) throw fastify.httpErrors.notAcceptable(`${id} is not a valid id!`); };
 
-  fastify.get('/:wineId', { schema }, async ({ params: { wineId } }) => {
+  fastify.patch('/:wineId', { schema }, async ({ params: { wineId }, body }) => {
     validateId(wineId);
 
+    await mongoose.model('Wine').updateOne({ _id: wineId }, body);
     return await mongoose.model('Wine').findOne({ _id: wineId }, { __v: 0 }) || fastify.httpErrors.notFound(`No wine in stock with id ${wineId}`);
   });
 };

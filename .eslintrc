@@ -5,6 +5,10 @@
   ],
   "rules": {
     "quotes": [2, "single", "avoid-escape"],
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "node/no-unpublished-require": 0
+  },
+  "env": {
+    "mocha": true
   }
 }

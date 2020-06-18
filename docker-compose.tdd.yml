@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  wines-service:
+    image: wines-service:dev
+    container_name: wines-service-dev
+    command: npm run tdd
+    environment:
+      - collection=test

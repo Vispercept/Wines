@@ -2,20 +2,15 @@ version: '3.4'
 
 services:
   wines-service:
-    image: wines-service:dev
-    container_name: wines-service-dev
+    image: wines-service:production
+    container_name: wines-service-production
     depends_on:
       - mongodb
     build:
       context: .
-      target: dev
-    volumes:
-      # do not mount node_modules
-      - /usr/src/app/node_modules
-      - .:/usr/src/app
+      target: production
     ports:
       - 8080:8080
-    command: npm run dev
   mongodb:
     image: mongo:4.2.8
     ports:

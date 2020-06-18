@@ -2,14 +2,20 @@
 
 ## Development
 
-Run `docker-compose up --build -d` respectively `docker-compose down`.
-Visit the api under [http://localhost:3000/](http://localhost:3000/).
+### DevServer
 
-File changes are recognized by nodemon. Filechanges in package*.json excluded. To make changes in package*.json file active run `docker-compose down && docker-compose up --build -d`
+Run `npm run dc_dev`. Visit the api under [http://localhost:3000/](http://localhost:3000/).
+
+### Testdriven development
+Run `npm run dc_tdd`. Visit logs by running `npm run dc_logs`
 
 ### Logs
 
-Logs can be found by running `docker logs wines-service-dev -f`
+Logs can be found by running `npm run dc_logs`
+
+### Changes in package*.json
+
+File changes are recognized by nodemon/mocha. Filechanges in package*.json excluded. To make changes in package*.json file active run `npm run dc_dev` again.
 
 
 ### Docs
@@ -20,7 +26,7 @@ Documentation can be found under [http://localhost:8080/docs](http://localhost:8
 
 ## Build for production
 
-Build `docker build -t wines-service:production .`.
+Build `npm run dc_build`.
 
 
 
