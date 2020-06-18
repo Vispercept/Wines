@@ -4,6 +4,8 @@ services:
   wines-service:
     image: wines-service:dev
     container_name: wines-service-dev
+    depends_on:
+      - mongodb
     build:
       context: .
       target: dev
@@ -12,5 +14,15 @@ services:
       - /usr/src/app/node_modules
       - .:/usr/src/app
     ports:
-      - 3000:8080
+      - 8080:8080
     command: npm run dev
+  mongodb:
+    image: mongo:4.2.8
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data
+volumes:
+  mongodb-data:
+    driver: local
+

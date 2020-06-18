@@ -1,12 +1,19 @@
 {
   "name": "wines-service",
   "version": "1.0.0",
-  "description": "",
+  "description": "Wines management api",
   "main": "index.js",
+  "engines": {
+    "node": "12"
+  },
   "scripts": {
-    "dev": "nodemon server",
+    "d_logs": "docker logs wines-service-dev -f",
+    "dc_restart": "npm run dc_stop && npm run dc_start",
+    "dc_stop": "docker-compose down",
+    "dc_start": "docker-compose up --build -d",
+    "dev": "nodemon src",
     "lint": "eslint .",
-    "start": "node server",
+    "start": "node src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,12 +28,16 @@
   },
   "homepage": "https://github.com/Vispercept/Wines#readme",
   "dependencies": {
-    "fastify": "^2.14.1"
+    "fastify": "^2.14.1",
+    "fastify-helmet": "^3.0.2",
+    "fastify-sensible": "^2.1.1",
+    "fastify-swagger": "^2.6.0",
+    "mongoose": "^5.9.19"
   },
   "devDependencies": {
     "eslint": "^7.2.0",
-    "eslint-config-eslint": "^6.0.0",
-    "eslint-plugin-jsdoc": "^27.1.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-node": "^11.1.0",
     "nodemon": "^2.0.4"
   }

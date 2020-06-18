@@ -1,0 +1,61 @@
+{
+  "title": "Wine",
+  "type": "object",
+  "required": [
+    "name",
+    "year",
+    "country",
+    "type"
+  ],
+  "example": {
+    "_id": "5eea66396e81c7002b28b8aa",
+    "name": "pinot grigio",
+    "year": "1999",
+    "country": "Italy",
+    "type": "white",
+    "description": "a grandiouse taste from the hear of italy",
+    "price": 7.99
+  },
+  "properties": {
+    "_id": {
+      "type": "string",
+      "minLength": 24,
+      "maxLength": 24
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 400
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1800,
+      "maximum": 3000
+    },
+    "country": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "red",
+        "white",
+        "rose"
+      ],
+      "minLength": 3,
+      "maxLength": 4
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 3000
+    },
+    "price": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 99999.99
+    }
+  }
+}

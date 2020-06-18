@@ -7,6 +7,15 @@ Visit the api under [http://localhost:3000/](http://localhost:3000/).
 
 File changes are recognized by nodemon. Filechanges in package*.json excluded. To make changes in package*.json file active run `docker-compose down && docker-compose up --build -d`
 
+### Logs
+
+Logs can be found by running `docker logs wines-service-dev -f`
+
+
+### Docs
+
+Documentation can be found under [http://localhost:8080/docs](http://localhost:8080/docs)
+
 
 
 ## Build for production

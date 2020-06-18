@@ -1,5 +1,8 @@
 {
-  "extends": "eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:node/recommended"
+  ],
   "rules": {
     "quotes": [2, "single", "avoid-escape"],
     "indent": ["error", 2]
