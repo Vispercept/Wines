@@ -28,3 +28,8 @@ Build `docker build -t wines-service:production .`.
 
 Run `docker run --name wines-service -d wines-service:production`.
 Visit the api under [http://localhost:8080/](http://localhost:8080/).
+
+
+## Problems
+
+One has to define two separate schemes, due to the fact that mongoose has its own type of schema definition and doesn't allow to use json-schema definitions. The usage of json-schema definitions allthoug should be prefered because it provides much more possibilities in terms of validation. There are some [outdated plugins](https://www.npmjs.com/package/mongoose-ajv-plugin) out there that compile json-schemes into mongoose-schemes but they come with security vulnerabilities. So we use two separate schemes for now...

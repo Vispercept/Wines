@@ -18,8 +18,8 @@ const schema = {
   },
   response: {
     200: { description: 'wine found', ...wineSchema },
-    // 404
-    // 406
+    404: { description: 'wine not found error object', type: 'object' },
+    406: { description: 'invalid id error object', type: 'object' },
   },
 };
 

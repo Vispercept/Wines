@@ -1,7 +1,11 @@
 const fastify = require('fastify')({ logger: true });
+const sensible = require('fastify-sensible');
+const fastifyHelmet = require('fastify-helmet');
 const wine = require('./components/wine');
 const plugins = require('./plugins');
 
+fastify.register(sensible);
+fastify.register(fastifyHelmet);
 fastify.register(plugins);
 fastify.register(wine, { prefix: '/api/wine' });
 

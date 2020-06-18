@@ -1,6 +1,4 @@
-const fastifyHelmet = require('fastify-helmet');
 const swagger = require('fastify-swagger');
-const sensible = require('fastify-sensible');
 
 const package = require('../../../package.json');
 const WineSchema = require('../../db/models/Wine/json-schema.json');
@@ -17,9 +15,16 @@ const swaggerOpts = {
   exposeRoute: true,
 };
 
-module.exports = async function wine(fastify) {
-  fastify.register(fastifyHelmet);
-  fastify.register(sensible);
+module.exports = async function plugins(fastify) {
   fastify.register(swagger, swaggerOpts);
-  fastify.get('/', (_, reply) => reply.redirect('/docs'));
+  fastify.get('/', {
+    schema: {
+      response: {
+        302: {
+          description: 'redirect to the docs for now',
+          type: 'string',
+        },
+      },
+    },
+  }, (_, reply) => reply.redirect('/docs'));
 };
