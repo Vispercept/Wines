@@ -2,7 +2,7 @@
   "name": "wines-service",
   "version": "1.0.0",
   "description": "Wines management api",
-  "main": "index.js",
+  "main": "src/index.js",
   "engines": {
     "node": "12"
   },
@@ -25,7 +25,7 @@
     "url": "git+https://github.com/Vispercept/Wines.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Thomas König",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Vispercept/Wines/issues"
