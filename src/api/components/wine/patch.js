@@ -5,7 +5,7 @@ const isValidObjectId = mongoose.Types.ObjectId.isValid;
 
 const schema = {
   tags: ['Wine-Api'],
-  summary: 'get a details of a specific wine',
+  summary: 'change details of a specfic wine',
   params: {
     type: 'object',
     properties: {
@@ -17,11 +17,11 @@ const schema = {
   },
   body: {
     ...wineSchema,
-    required: [],
+    required: [], // nothing is required here due to this is an PATCH route
   },
   response: {
     200: { description: 'wine updted', ...wineSchema },
-    404: { description: 'wine not found error object', type: 'object' },
+    404: { description: 'invalid or missing payload', type: 'object' },
     406: { description: 'invalid id error object', type: 'object' },
   },
 };

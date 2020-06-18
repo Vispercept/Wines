@@ -45,7 +45,7 @@
         "rose"
       ],
       "minLength": 3,
-      "maxLength": 4
+      "maxLength": 5
     },
     "description": {
       "type": "string",
