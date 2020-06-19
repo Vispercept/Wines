@@ -61,11 +61,11 @@ Visit the api under [http://localhost:8080/](http://localhost:8080/).
 
 1. [**Fastify**](https://github.com/fastify/fastify): is known to be one of the fastests server-frameworks for node.js with very low overhead. Due to the simplicity (no authentication, only two endpoints etc.) of this api, fastify might be a good choice. According to [fastify-benchmarks](https://github.com/fastify/benchmarks) this framework allows dobble requests/second (58389.6) than for example express.js (27057.6) or hapi (22678.4). It also has a good community behind it and notable 15K Stars on Github. For me personally fastify was a new experience here. I enjoyed it much and found the concepts around it comprehensive. The swagger integration works well. There is also a helmet-module which one might know from express etc.
 
-2. [mongoose](https://mongoosejs.com/docs/guide.html): is a very comfortable way to communicate with mongodb in node.js. It also comes with schema validation. Unfortunately it does still not support json-schema which leads to multiple definitions here -> [See Optimization potential](#optimization). Nevertheless mongoose provides a reliable way to get and store data in mongodb.
+2. [**mongoose**](https://mongoosejs.com/docs/guide.html): is a very comfortable way to communicate with mongodb in node.js. It also comes with schema validation. Unfortunately it does still not support json-schema which leads to multiple definitions here -> [See Optimization potential](#optimization). Nevertheless mongoose provides a reliable way to get and store data in mongodb.
 
-3. [mocha/chai](https://mochajs.org/): Almost 10 years mocha is a good choice when it comes to testing. For now there is now reason for me to choose another one. Mocha is well implemented and does what i want it to do. Chai is also very handy when it comes to assertions.
+3. [**mocha/chai**](https://mochajs.org/): Almost 10 years mocha is a good choice when it comes to testing. For now there is now reason for me to choose another one. Mocha is well implemented and does what i want it to do. Chai is also very handy when it comes to assertions.
 
-4. [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb): Surely the choice of a linting config is a very individual matter. I like the airbnb-style and do have only little changes for this config stored in .eslintrc .
+4. [**eslint-config-airbnb**](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb): Surely the choice of a linting config is a very individual matter. I like the airbnb-style and do have only little changes for this config stored in .eslintrc .
 
 ## challenging parts
 
