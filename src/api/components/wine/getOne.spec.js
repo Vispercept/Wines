@@ -1,5 +1,4 @@
 const { expect } = require('chai');
-const mongoose = require('mongoose');
 const server = require('../../server');
 const dbUtils = require('../../../test/utils/db');
 

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const opts = { useNewUrlParser: true, useUnifiedTopology: true };
+const mongoConnectionUri = process.env.mongoConnectionUri || 'mongodb://mongodb/wines';
 
 module.exports = {
-  connect: () => mongoose.connect('mongodb://mongodb/wines', opts),
+  connect: () => mongoose.connect(mongoConnectionUri, opts),
 };
