@@ -21,7 +21,7 @@ COPY --from=dev /usr/src/app/ ./
 COPY . .
 RUN npm run lint
 RUN npm prune --production
-# RUN npm audit --production
+RUN npm audit --production
 
 EXPOSE 8080
 
