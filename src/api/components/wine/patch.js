@@ -10,12 +10,15 @@ const schema = {
     properties: {
       wineId: {
         type: 'string',
-        description: 'The id of the wine to show',
+        description: 'The id of the wine to be changed',
       },
     },
   },
   body: {
     ...wineSchema,
+    example: {
+      name: 'chardonnay',
+    },
     required: [], // nothing is required here due to this is an PATCH route
   },
   response: {

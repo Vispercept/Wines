@@ -14,6 +14,7 @@ const port = process.env.PORT || 8080;
 async function start() {
   await fastify.listen(port, '0.0.0.0');
   fastify.log.info(`✅ Server listening on: ${fastify.server.address().port}`);
+  fastify.log.info(`\n${fastify.printRoutes()}`);
   return fastify;
 }
 
