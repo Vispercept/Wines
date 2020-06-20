@@ -25,19 +25,38 @@ An api to manage wines in stock. Add, delete, view and change details of wines.
 
 > docker-compose overwritings here in docker-compose.dev.yml (base: docker-compose.yml)
 
+See available options by runnig `make` and receive help output
+```
+$ make
+-------------------------
+Wine-Api project commands
+
+target                         help
+------                         ----
+help                           This help dialog.
+build                          Builds a production image
+start                          Run the application
+stop                           Stop the application
+test                           Run functional tests with db connections
+tdd                            Development task to develop in test-drive-development manner
+dev                            Development mode
+logs                           Show development logs
+lint                           Run linters
+```
+
 ## Development server
-Run `npm run dc_dev`. Visit the api under [http://localhost:3000/](http://localhost:3000/).
+Run `make dev`. Visit the api under [http://localhost:3000/](http://localhost:3000/).
 
 ## Testdriven development
-Run `npm run dc_tdd` and watch mocha doing the work.
+Run `make tdd` and watch mocha doing the work.
 
 ## Running tests
-Run `npm run dc_test`.
+Run `make test`.
 
 ## Watching the logs
-Logs can be found by running `npm run dc_logs`
+Logs can be found by running `make logs`
 
-> **Changes in package*.json** files are not recognized by nodemon/mocha. To make these changes active run `npm run dc_dev` again.
+> **Changes in package*.json** files are not recognized by nodemon/mocha. To make these changes active run `make dev` again.
 
 ## Docs
 
@@ -49,8 +68,8 @@ Documentation can be found under [http://localhost:8080/docs](http://localhost:8
 
 > settings can be found in docker-compose.yml
 
-Build production image `npm run dc_build`.
-Run production image `npm run dc_run_prod`
+Build production image `make build`.
+Run production image `make start`
 Visit the api under [http://localhost:8080/](http://localhost:8080/).
 
 
@@ -69,13 +88,13 @@ Visit the api under [http://localhost:8080/](http://localhost:8080/).
 
 ## challenging parts
 
-### Secure production images
+### Secure production images by using makefiles
 
 -> @todo
+- makefile no rebuild necessary - commands in package.json trigger whole docker-build process because of layers.
 - docker-compose build stages
-- npm run test in docker-compose with deps on mongodb
-`docker run -d -p 27017:27017 --name mongo --network build-network mongo`
-`docker build --network build-network .`
+- audit
+- make dependencies
 
 ## <a name="optimization">Optimization potential</a>
 
