@@ -90,11 +90,11 @@ Visit the api under [http://localhost:8080/](http://localhost:8080/).
 
 ### Secure production images by using makefiles
 
--> @todo
-- makefile no rebuild necessary - commands in package.json trigger whole docker-build process because of layers.
-- docker-compose build stages
-- audit
-- make dependencies
+Securing production images is very important. To ensure this application doesn't have known vulnerabilites, linting issues or failing tests some mechanisms are built in here.
+
+1. In the dockerfile `npm audit` is one layer. This ensures that this image has no vulnerabilites built in.
+2. In the dockerfile there are two stages dev and production. When the production image is built this image just copies the node_modules from the dev stage but starts from a new and clear node-image. Then all dev-dependencies copied from the dev-stage are deleted by running `npm prune --production` to ensure that no unneeded packages are part of the production image. Also very handy is the fact that the `make dev` command uses the same Dockerfile and builds the first layers of the dev stage. When it comes to building the prodcution image these layers already exist.
+3. Make allows to define targets that has to be built before the actual target is built. So when running `make build` two things happen before. `make lint` and `make test`. This ensures that an image that is built through `make build` will allways be tested,linted and audited!
 
 ## <a name="optimization">Optimization potential</a>
 

@@ -19,7 +19,6 @@ ENV NODE_ENV=production
 
 COPY --from=dev /usr/src/app/ ./
 COPY . .
-RUN npm run lint
 RUN npm prune --production
 RUN npm audit --production
 
